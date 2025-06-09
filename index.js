@@ -9,13 +9,17 @@ app.use(express.urlencoded({extended:false}));
 
 //routes
 app.use('/api/user',userRoutes);
-
+const PORT = process.env.PORT || 3000;
 mongoose.connect('mongodb+srv://rediettedila5:a31mKH1Uh8jv7JYX@seniorproject.91pud.mongodb.net/?retryWrites=true&w=majority&appName=SeniorProject')
   .then(() =>{
     console.log('Connected!');
-    app.listen(3000,()=>{
-        console.log("Server is running on port 3000");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
   }).catch(()=>{
     console.log("Connection failed!");
   });
+
+
+
+  
